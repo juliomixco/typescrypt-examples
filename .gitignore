@@ -1,0 +1,4 @@
+.sonarlint
+backup
+node_modules
+build
