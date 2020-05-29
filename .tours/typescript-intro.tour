@@ -1,0 +1,166 @@
+{
+  "title": "typescript intro",
+  "steps": [
+    {
+      "file": "src/class-to-object.ts",
+      "line": 1,
+      "description": "To define the `shape` of an object use interfaces.\r\nwhen we talk about `shape` of an object  we are refering to the object's properties and methods.\r\n\r\nhere we define the `shape` of the Person object\r\n\r\n```\r\ninterface Person {\r\n  name: string;\r\n  age: number;\r\n  height: number;\r\n  hobbies: string[];\r\n}\r\n```\r\nby writting the code above we are telling the compiler the type of each property. This is helpful because every time we assing this type to a _parameter_ or _variable_ the compiler will help us _auto-complete_ our code. this feature is called `IntelliSense`.\r\n",
+      "selection": {
+        "start": {
+          "line": 2,
+          "character": 1
+        },
+        "end": {
+          "line": 5,
+          "character": 21
+        }
+      }
+    },
+    {
+      "file": "src/class-to-object.ts",
+      "line": 7,
+      "description": "To implement an interface in a class we use the keyword *implements* after the class name. A class can implement multiple interfaces.\r\n\r\nonce we implement an interface we are required to *implement* all the properties and methods from that *interface*. If we fail to implement an interface correctly you would receive a compiler error."
+    },
+    {
+      "file": "src/class-to-object.ts",
+      "line": 12,
+      "description": "there are 2 ways of defining class properties:\r\nthe first one is definingthen in the class body\r\n```\r\nclass Person implements IPerson {\r\n  name: string;\r\n  age: number;\r\n  height: number;\r\n  hobbies: string[ ];\r\n}\r\n```\r\nand the second one is defining then in the class constructor.\r\n```\r\nclass Person implements IPerson {\r\n constructor(\r\n    public name: string,\r\n    public age: number,\r\n    public height: number,\r\n    public hobbies: string[ ]\r\n  ) {} \r\n```\r\n",
+      "selection": {
+        "start": {
+          "line": 14,
+          "character": 4
+        },
+        "end": {
+          "line": 18,
+          "character": 7
+        }
+      }
+    },
+    {
+      "file": "src/class-to-object.ts",
+      "line": 19,
+      "description": "a common way of creating serializable objects (without methods) is adding a toJson method to the class"
+    },
+    {
+      "file": "src/class-to-object.ts",
+      "line": 19,
+      "description": "a common way of creating serializable objects is adding a **toJson** method tho the class"
+    },
+    {
+      "file": "src/class-to-object.ts",
+      "line": 28,
+      "description": "a common way to creating class instances from objects coming from the API is adding **fromJson** method",
+      "selection": {
+        "start": {
+          "line": 28,
+          "character": 10
+        },
+        "end": {
+          "line": 28,
+          "character": 18
+        }
+      }
+    },
+    {
+      "file": "src/class-to-object.ts",
+      "line": 47,
+      "description": "typescript automatically infers the type of **p1** and notice the property *hobbies* is missing from the object"
+    },
+    {
+      "file": "src/shape.ts",
+      "line": 5,
+      "description": "this is an example of how to apply class inheritance"
+    },
+    {
+      "file": "src/shape.ts",
+      "line": 10,
+      "description": "we are required to implement the abstract method *getArea()* inherited from the base class",
+      "selection": {
+        "start": {
+          "line": 10,
+          "character": 3
+        },
+        "end": {
+          "line": 10,
+          "character": 12
+        }
+      }
+    },
+    {
+      "file": "src/shape.ts",
+      "line": 35,
+      "description": "the variable named **shape** is of type **Shape** but we are able to assign instances coming from child classes of **Shape**",
+      "selection": {
+        "start": {
+          "line": 35,
+          "character": 14
+        },
+        "end": {
+          "line": 35,
+          "character": 19
+        }
+      }
+    },
+    {
+      "file": "src/shape-functional.ts",
+      "line": 1,
+      "description": "this is the functional approach on how to implement the previos example"
+    },
+    {
+      "file": "src/shape-functional.ts",
+      "line": 18,
+      "description": "you can declare **inline types** this might be useful if you would use it just in that part of the code.\r\nBut if you will us them in multiple places it quickly becomes unsustainable, beacuse everytime you need to add a change this has to be replicated in all the other places where you defined the same inline types.\r\n\r\nTo avoid this problems I recommend defining reusable interfaces to manage your types efficiently.\r\n"
+    },
+    {
+      "file": "src/shape-functional.ts",
+      "line": 20,
+      "description": "in this line we are creating a `type alias` think of it as a way of defining types derived from other types.\r\n```\r\ntype TypeAlias\r\n```\r\n\r\nthe line above is creating the type alias **Shape** and it's telling the compiler that it's a Union type of ICircle , IRectangle and ISquare. This means that Shape can be either of type ICircle , IRectangle or ISquare. Just one at the same time.",
+      "selection": {
+        "start": {
+          "line": 20,
+          "character": 21
+        },
+        "end": {
+          "line": 20,
+          "character": 51
+        }
+      }
+    },
+    {
+      "file": "src/shape-functional.ts",
+      "line": 26,
+      "description": "this function is in charge of calculating the area depending on the type.\r\nby hovering over the variable **shape** in each switch's case you can tell that the compiler narrows down the type depending on the properties values.",
+      "selection": {
+        "start": {
+          "line": 27,
+          "character": 11
+        },
+        "end": {
+          "line": 27,
+          "character": 16
+        }
+      }
+    },
+    {
+      "file": "src/shape-functional.ts",
+      "line": 35,
+      "description": "whenever typescipt reaches an impossible code branch the variable **shape** becomes of tipe [**never**](https://www.typescriptlang.org/docs/handbook/basic-types.html#never)",
+      "selection": {
+        "start": {
+          "line": 38,
+          "character": 3
+        },
+        "end": {
+          "line": 38,
+          "character": 14
+        }
+      }
+    },
+    {
+      "file": "src/generics.ts",
+      "line": 4,
+      "description": "now we'll take a look into generics you can read more about them in [this article](https://dev.to/jmixcog/typescript-generics-recover-your-type-checks-and-intellisense-mmk)"
+    }
+  ],
+  "ref": "master"
+}

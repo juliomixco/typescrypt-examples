@@ -10,4 +10,14 @@ export const compareStrings = (
 export const excludeVal = <DataType>(
   arr: DataType[],
   excludedVal: DataType
-): DataType[] => arr.filter(e => e !== excludedVal);
+): DataType[] => arr.filter((e) => e !== excludedVal);
+
+
+
+function excludeValue(arr: any[], excludedVal: any): any[] {
+  return arr.filter((e) => e !== excludedVal);
+}
+
+function excludeValueTyped<T>(arr: T[], excludedVal: T): T[] {
+  return arr.filter((e) => e !== excludedVal);
+}

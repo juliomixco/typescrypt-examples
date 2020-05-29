@@ -22,7 +22,7 @@ class Person implements IPerson {
       age,
       height,
       hobbies,
-      name
+      name,
     };
   }
   static fromJson(data: IPerson) {
@@ -40,8 +40,8 @@ class Person implements IPerson {
 const p1 = {
   name: "juan perez",
   age: 22,
-  height: 223
-  // hobbies: ["football", "games", "food"]
+  height: 223,
+  // ,hobbies: ["football", "games", "food"]
 };
 
 const person1 = Person.fromJson(p1);
